@@ -1,0 +1,13 @@
+﻿<div class="brands_products">
+    <!--brands_products-->
+    <h2>Hãng</h2>
+    <div class="brands-name">
+        <ul class="nav nav-pills nav-stacked">
+            @foreach (var item in ViewBag.MenuHDT)
+            {
+                <li><a href="#"> <span class="pull-right">(50)</span>@item.Hang</a></li>
+            }
+            
+        </ul>
+    </div>
+</div><!--/brands_products-->

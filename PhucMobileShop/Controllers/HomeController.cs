@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhucMobileShop.Models.Bus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,11 @@ namespace PhucMobileShop.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.SanPhamNoiBat = SanPhamBus.DanhSachNoiBat();
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult admin()
         {
             ViewBag.Message = "Your application description page.";
 
