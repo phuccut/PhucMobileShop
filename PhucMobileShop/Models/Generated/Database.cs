@@ -487,7 +487,9 @@ namespace PhucMobileConnection
 
 
 
-	[PrimaryKey("MaSanPham", AutoIncrement=false)]
+	[PrimaryKey("MaSanPham")]
+
+
 
 
 	[ExplicitColumns]
@@ -551,13 +553,19 @@ namespace PhucMobileConnection
 
 
 
-		[Column] public DateTime NgayNhap { get; set; }
+		[Column] public DateTime? NgayNhap { get; set; }
 
 
 
 
 
 		[Column] public int SoLuong { get; set; }
+
+
+
+
+
+		[Column] public int? LoaiSanPham { get; set; }
 
 
 

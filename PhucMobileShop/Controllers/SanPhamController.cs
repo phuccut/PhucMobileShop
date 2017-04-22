@@ -1,4 +1,5 @@
-﻿using PhucMobileShop.Models.Bus;
+﻿using PhucMobileConnection;
+using PhucMobileShop.Models.Bus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,23 +26,24 @@ namespace PhucMobileShop.Controllers
         // GET: SanPham/Create
         public ActionResult Create()
         {
+            ViewBag.MaNSX = new SelectList(NhaSanXuatBus.DanhSach(), "MaNSX", "TenNSX");
             return View();
         }
 
         // POST: SanPham/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(sanpham sp)
         {
-            try
-            {
+            //try
+            //{
                 // TODO: Add insert logic here
-
+                SanPhamBus.Them(sp);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: SanPham/Edit/5
