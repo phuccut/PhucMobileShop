@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PhucMobileConnection.sanpham>
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+}
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Dữ liệu sản phẩm</h3><br><br>
+            <!-- Button add -->
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapse">Thêm mới</button>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 100px">Mã sản phẩm</th>
+                        <th style="width: 300px">Tên sản phẩm</th>
+                        <th style="width: 150px">Giá</th>
+                        <th style="width: 100px">Nhà sản xuất</th>
+                        <th style="width: 150px">Xuất Xứ</th>
+                        <th style="width: 300px">Hình ảnh</th>
+                        <th style="width: 100px">Số lượng</th>
+                        <th style="width: 100px">Số lượt xem</th>
+                        <th style="width: 100px">Số lượt mua</th>
+                        <th style="width: 200px">Ngày Nhập</th>     
+                        <th>Chức năng</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                       @foreach (var item in Model)
+                       {
+                       <tr>
+                        <td>@item.MaSanPham</td>
+                        <td>@item.TenSanPham</td>
+                        <td>@item.Gia</td>
+                        <td>@item.MaNSX</td>
+                        <td>@item.XuatXu</td>
+                        <td>@item.HinhAnh</td>
+                        <td>@item.SoLuong</td>
+                        <td>@item.SoLuotXem</td>
+                        <td>@item.SoLuotMua</td>
+                        <td>@item.NgayNhap</td>
+                        <td>
+                          <form method="post">
+                            <input type="hidden" name="id" value="1">
+                            <input type="submit" class="btn" onclick="ConfirmXoa()" value="Xóa">
+                          </form>
+                          <form action="pages/noithatsua.php">
+                            <input type="hidden" name="id" value="1">
+                            <button class="btn">Sửa</button>
+                          </form>
+                        </td>
+
+                      </tr>
+                       }
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Mã loại nội thất</th>
+                        <th>Tên loại nội thất</th>
+                        <th>Mô tả</th>
+                        <th>Hình ảnh</th>
+                        <th>Nổi bật</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</div><!-- /.col -->

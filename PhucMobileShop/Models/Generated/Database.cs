@@ -323,46 +323,6 @@ namespace PhucMobileConnection
 
     
 
-	[TableName("dbo.hangdienthoai")]
-
-
-
-	[PrimaryKey("MaHang", AutoIncrement=false)]
-
-
-	[ExplicitColumns]
-
-    public partial class hangdienthoai : PhucMobileConnectionDB.Record<hangdienthoai>  
-    {
-
-
-
-		[Column] public int MaHang { get; set; }
-
-
-
-
-
-		[Column] public string Hang { get; set; }
-
-
-
-
-
-		[Column] public int? MaNSX { get; set; }
-
-
-
-
-
-		[Column] public int? bixoa { get; set; }
-
-
-
-	}
-
-    
-
 	[TableName("dbo.khachhang")]
 
 

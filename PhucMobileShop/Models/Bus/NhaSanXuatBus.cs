@@ -14,7 +14,16 @@ namespace PhucMobileShop.Models.Bus
             {
                 return db.Query<PhucMobileConnection.nhasanxuat>("SELECT * FROM nhasanxuat WHERE bixoa<>1");
             }
-                
+        }
+        public static nhasanxuat ChiTiet(int id)
+        {
+            var db = new PhucMobileConnectionDB();
+            return db.SingleOrDefault<nhasanxuat>("SELECT * FROM nhasanxuat WHERE MaNSX = @0", id);
+        }
+        public static nhasanxuat NSXbyHang(int id)
+        {
+            var db = new PhucMobileConnectionDB();
+            return db.SingleOrDefault<nhasanxuat>("SELECT * FROM nhasanxuat WHERE MaNSX = @0", id);
         }
     }
 }

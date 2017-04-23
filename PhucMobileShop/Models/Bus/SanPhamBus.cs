@@ -23,6 +23,11 @@ namespace PhucMobileShop.Models.Bus
             var db = new PhucMobileConnectionDB();
             return db.SingleOrDefault<sanpham>("SELECT * FROM sanpham WHERE MaSanPham = @0", id);
         }
+        public static IEnumerable<PhucMobileConnection.sanpham> SanPhambyNSX(int id)
+        {
+            var db = new PhucMobileConnectionDB();
+            return db.Query<PhucMobileConnection.sanpham>("SELECT * FROM sanpham WHERE MaNSX = @0", id);
+        }
         public static void Them(sanpham sp)
         {
             var db = new PhucMobileConnectionDB();

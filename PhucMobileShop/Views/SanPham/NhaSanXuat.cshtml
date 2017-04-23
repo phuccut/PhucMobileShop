@@ -3,7 +3,7 @@
     ViewBag.Title = "Sản Phẩm";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.NhaSanXuat.TenNSX</h2>
 @foreach (var item in Model)
 {
     <div class="col-sm-4">
@@ -18,7 +18,7 @@
                 <div class="product-overlay">
                     <div class="overlay-content">
                         <h2>@String.Format("{0:0,0}", item.Gia)</h2>
-                        <p>@Html.ActionLink(item.TenSanPham, "Details", new {id = item.MaSanPham })</p>
+                        <p>@Html.ActionLink(item.TenSanPham, "Details", new { id = item.MaSanPham })</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>

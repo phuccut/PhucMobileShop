@@ -13,10 +13,10 @@ namespace PhucMobileShop.Models.Bus
             var db = new PhucMobileConnectionDB();
             return db.Query<PhucMobileConnection.loaisanpham>("SELECT * FROM loaisanpham");
         }
-        public static IEnumerable<PhucMobileConnection.hangdienthoai> DanhSachHangDienThoai()
+        public static IEnumerable<PhucMobileConnection.nhasanxuat> DanhSachNhaSanXuat()
         {
             var db = new PhucMobileConnectionDB();
-            return db.Query<PhucMobileConnection.hangdienthoai>("SELECT * FROM hangdienthoai");
+            return db.Query<PhucMobileConnection.nhasanxuat>("SELECT * FROM nhasanxuat");
         }
     }
 }

@@ -15,10 +15,10 @@ namespace PhucMobileShop.Controllers
             ViewBag.menuLSP = MenuBus.DanhSachLoaiSanPham();
             return PartialView("~/Views/Shared/_LoaiSanPham.cshtml");
         }
-        public PartialViewResult GetHangDienThoai()
+        public PartialViewResult GetNhaSanXuat()
         {
-            ViewBag.menuHDT = MenuBus.DanhSachHangDienThoai();
-            return PartialView("~/Views/Shared/_HangDienThoai.cshtml");
+            ViewBag.menuHDT = MenuBus.DanhSachNhaSanXuat();
+            return PartialView("~/Views/Shared/_NhaSanXuat.cshtml");
         }
     }
 }

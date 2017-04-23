@@ -1,13 +1,13 @@
-﻿@model PhucMobileConnection.sanpham
+﻿@model PhucMobileShop.Models.ViewModels.SanPhamViewModels
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết sản phẩm";
 }
 
 <div class="product-details">
     <!--product-details-->
     <div class="col-sm-5">
         <div class="view-product">
-            <img src="../../@Model.HinhAnh" alt="">
+            <img src="../../@Model.SanPham.HinhAnh" alt="">
             <h3>ZOOM</h3>
         </div>
         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -46,11 +46,11 @@
         <div class="product-information">
             <!--/product-information-->
             <img src="~/images/product-details/new.jpg" class="newarrival" alt="">
-            <h2>@Model.TenSanPham</h2>
+            <h2>@Model.SanPham.TenSanPham</h2>
             <p>Web ID: 1089772</p>
             <img src="~/images/product-details/rating.png" alt="">
             <span>
-                <span>VND @Model.Gia</span>
+                <span>VND @Model.SanPham.Gia</span>
                 <label>Quantity:</label>
                 <input type="text" value="3">
                 <button type="button" class="btn btn-fefault cart">
@@ -60,7 +60,7 @@
             </span>
             <p><b>Availability:</b> In Stock</p>
             <p><b>Condition:</b> New</p>
-            <p><b>Brand:</b> E-SHOPPER</p>
+            <p><b>Brand:</b>@Html.ActionLink(Model.NhaSanXuat.TenNSX,"Nha-San-Xuat",new { nsx = Model.NhaSanXuat.MaNSX })</p>
             <a href=""><img src="~/images/product-details/share.png" class="share img-responsive" alt=""></a>
         </div><!--/product-information-->
     </div>

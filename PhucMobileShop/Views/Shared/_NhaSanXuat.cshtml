@@ -4,9 +4,10 @@
     <div class="brands-name">
         <ul class="nav nav-pills nav-stacked">
             @foreach (var item in ViewBag.MenuHDT)
-            {
-                <li><a href="#"> <span class="pull-right">(50)</span>@item.Hang</a></li>
-            }
+                {
+                   var url = "/SanPham/" + item.TenNSX + "-" + item.MaNSX;
+                    <li><a href="@url"> <span class="pull-right">(50)</span>@item.TenNSX</a></li>
+                 }
             
         </ul>
     </div>

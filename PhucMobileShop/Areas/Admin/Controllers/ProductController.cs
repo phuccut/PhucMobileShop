@@ -1,53 +1,44 @@
 ﻿using PhucMobileConnection;
-using PhucMobileShop.Models.Bus;
-using PhucMobileShop.Models.ViewModels;
+using PhucMobileShop.Areas.Admin.Models.Bus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PhucMobileShop.Controllers
+namespace PhucMobileShop.Areas.Admin.Controllers
 {
-    public class SanPhamController : Controller
+    public class ProductController : Controller
     {
-        // GET: SanPham
+        // GET: Admin/SanPham
         public ActionResult Index()
         {
-            var dsSanPham = SanPhamBus.DanhSach();
-            return View(dsSanPham);
-        }
-        public ActionResult NhaSanXuat(int MaNSX)
-        {
-            var ds = SanPhamBus.SanPhambyNSX(MaNSX);
-            ViewBag.NhaSanXuat = NhaSanXuatBus.ChiTiet(MaNSX);
+            var ds = SanPhamBus.DanhSach();
             return View(ds);
         }
 
-        // GET: SanPham/Details/5
+        // GET: Admin/SanPham/Details/5
         public ActionResult Details(int id)
         {
-            var sp = SanPhamBus.ChiTiet(id);
-            var nsx = NhaSanXuatBus.ChiTiet(sp.MaNSX);
-            return View(new SanPhamViewModels() {SanPham=sp,NhaSanXuat=nsx});
+            return View();
         }
 
-        // GET: SanPham/Create
+        // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
             ViewBag.MaNSX = new SelectList(NhaSanXuatBus.DanhSach(), "MaNSX", "TenNSX");
             return View();
         }
 
-        // POST: SanPham/Create
+        // POST: Admin/SanPham/Create
         [HttpPost]
         public ActionResult Create(sanpham sp)
         {
             //try
             //{
-                // TODO: Add insert logic here
-                SanPhamBus.Them(sp);
-                return RedirectToAction("Index");
+            // TODO: Add insert logic here
+            SanPhamBus.Them(sp);
+            return RedirectToAction("Index");
             //}
             //catch
             //{
@@ -55,13 +46,13 @@ namespace PhucMobileShop.Controllers
             //}
         }
 
-        // GET: SanPham/Edit/5
+        // GET: Admin/SanPham/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SanPham/Edit/5
+        // POST: Admin/SanPham/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -77,13 +68,13 @@ namespace PhucMobileShop.Controllers
             }
         }
 
-        // GET: SanPham/Delete/5
+        // GET: Admin/SanPham/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SanPham/Delete/5
+        // POST: Admin/SanPham/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
