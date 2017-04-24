@@ -42,13 +42,10 @@
                         <td>@item.NgayNhap</td>
                         <td>
                           <form method="post">
-                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="id" value="@item.MaSanPham">
                             <input type="submit" class="btn" onclick="ConfirmXoa()" value="Xóa">
                           </form>
-                          <form action="pages/noithatsua.php">
-                            <input type="hidden" name="id" value="1">
-                            <button class="btn">Sửa</button>
-                          </form>
+                          @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaSanPham }, new AjaxOptions { HttpMethod = "POST" })
                         </td>
 
                       </tr>
