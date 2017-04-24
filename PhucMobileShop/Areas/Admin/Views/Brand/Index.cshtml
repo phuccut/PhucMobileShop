@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PhucMobileConnection.nhasanxuat>
+@{
+    ViewBag.Title = "Quản lý nhà sản xuất";
+    ViewBag.activeNSX = "active";
+}
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Dữ liệu nhà sản xuất</h3><br><br>
+            <!-- Button add -->
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapse">Thêm mới</button>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 300px">Mã nhà sản xuất</th>
+                        <th style="width: 400px">Tên nhà sản xuất</th>
+                        <th style="width: 450px">Mô tả</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaNSX</td>
+                            <td>@item.TenNSX</td>
+                            <td>@item.MoTa</td>
+                            <td>
+                                <form method="post">
+                                    <input type="hidden" name="id" value="@item.MaNSX">
+                                    <input type="submit" class="btn" onclick="ConfirmXoa()" value="Xóa">
+                                </form>
+                                <button class="btn">
+                                    @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaNSX }, new AjaxOptions { HttpMethod = "POST" })
+                                </button>
+                            </td>
+                       </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Mã nhà sản xuất</th>
+                        <th>Tên nhà sản xuất</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</div><!-- /.col -->

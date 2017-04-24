@@ -33,7 +33,8 @@ namespace PhucMobileShop.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
-            ViewBag.MaNSX = new SelectList(NhaSanXuatBus.DanhSach(), "MaNSX", "TenNSX");
+            ViewBag.MaNSX = new SelectList(BrandBus.DanhSach(), "MaNSX", "TenNSX");
+            ViewBag.MaLSP = new SelectList(TypeBus.DanhSach(), "MaLSP", "TenLSP");
             return View();
         }
 
@@ -41,9 +42,17 @@ namespace PhucMobileShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(sanpham sp)
         {
-            //try
-            //{
-            // TODO: Add insert logic here
+            if (HttpContext.Request.Files.Count > 0)
+            {
+                var hpf = HttpContext.Request.Files[0];
+                if (hpf.ContentLength > 0)
+                {
+                    string filename = Guid.NewGuid().ToString();
+                    string fullpathwithfilename = "/Images/chitietsanpham/" + filename + ".jpg";
+                    hpf.SaveAs(Server.MapPath(fullpathwithfilename));
+                    sp.HinhAnh = fullpathwithfilename;
+                }
+            }
             ProductBus.Them(sp);
             return RedirectToAction("Index");
             //}
@@ -58,9 +67,9 @@ namespace PhucMobileShop.Areas.Admin.Controllers
         {
             var ds = ProductBus.ChiTiet(id);
             var selectnsx = ds.MaNSX;
-            var selectlsp = ds.LoaiSanPham;
-            ViewBag.MaNSX = new SelectList(NhaSanXuatBus.DanhSach(), "MaNSX", "TenNSX",selectnsx);
-            ViewBag.MaLSP = new SelectList(LoaiSanPhamBus.DanhSach(), "MaNSX", "TenNSX",selectlsp);
+            var selectlsp = ds.MaLSP;
+            ViewBag.MaNSX = new SelectList(BrandBus.DanhSach(), "MaNSX", "TenNSX",selectnsx);
+            ViewBag.MaLSP = new SelectList(TypeBus.DanhSach(), "MaLSP", "TenLSP",selectlsp);
             return View(ds);
         }
 

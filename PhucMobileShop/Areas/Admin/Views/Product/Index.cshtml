@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<PhucMobileConnection.sanpham>
 @{
     ViewBag.Title = "Quản lý sản phẩm";
+    ViewBag.activeSP = "active";
 }
 <div class="col-xs-12">
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Dữ liệu sản phẩm</h3><br><br>
             <!-- Button add -->
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapse">Thêm mới</button>
+            <a href="@Url.Action("Create","Product")"<button type="button" class="btn btn-info">Thêm mới</button></a>
         </div><!-- /.box-header -->
         <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
@@ -45,7 +46,9 @@
                             <input type="hidden" name="id" value="@item.MaSanPham">
                             <input type="submit" class="btn" onclick="ConfirmXoa()" value="Xóa">
                           </form>
-                          @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaSanPham }, new AjaxOptions { HttpMethod = "POST" })
+                            <button class="btn">
+                                @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaSanPham }, new AjaxOptions { HttpMethod = "POST" })
+                            </button>
                         </td>
 
                       </tr>
@@ -53,11 +56,17 @@
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>Mã loại nội thất</th>
-                        <th>Tên loại nội thất</th>
-                        <th>Mô tả</th>
-                        <th>Hình ảnh</th>
-                        <th>Nổi bật</th>
+                          <th>Mã sản phẩm</th>
+                          <th>Tên sản phẩm</th>
+                          <th>Giá</th>
+                          <th>Nhà sản xuất</th>
+                          <th>Xuất Xứ</th>
+                          <th>Hình ảnh</th>
+                          <th>Số lượng</th>
+                          <th>Số lượt xem</th>
+                          <th>Số lượt mua</th>
+                          <th>Ngày Nhập</th>
+                          <th>Chức năng</th>
                       </tr>
                     </tfoot>
                   </table>

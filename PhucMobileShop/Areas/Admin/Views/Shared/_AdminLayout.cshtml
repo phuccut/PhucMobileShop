@@ -190,19 +190,19 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">Thanh điều hướng</li>
-                    <li class="treeview">
-                        <a href="#">
+                    <li class="treeview @ViewBag.activeSP">
+                        <a href="@Url.Action("index","Product")">
                             <i class="fa fa-sitemap"></i> <span>Quản Lý Sản Phẩm</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                     </li>
-                    <li class="treeview active">
-                        <a href="#">
+                    <li class="treeview @ViewBag.activeNSX">
+                        <a href="@Url.Action("index","Brand")">
                             <i class="fa fa-bed"></i>
                             <span>Quản lý nhà sản xuất</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
+                    <li class="treeview @ViewBag.activeLSP">
+                        <a href="@Url.Action("index","Type")">
                             <i class="fa fa-bank"></i>
                             <span>Quản Lý Loại Sản Phẩm</span>
                             <i class="fa fa-angle-left pull-right"></i>

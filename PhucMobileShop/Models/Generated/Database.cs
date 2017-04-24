@@ -407,7 +407,9 @@ namespace PhucMobileConnection
 
 
 
-	[PrimaryKey("MaNSX", AutoIncrement=false)]
+	[PrimaryKey("MaNSX")]
+
+
 
 
 	[ExplicitColumns]
@@ -435,7 +437,7 @@ namespace PhucMobileConnection
 
 
 
-		[Column] public int bixoa { get; set; }
+		[Column] public int? bixoa { get; set; }
 
 
 
@@ -501,7 +503,7 @@ namespace PhucMobileConnection
 
 
 
-		[Column] public int SoLuotXem { get; set; }
+		[Column] public int? SoLuotXem { get; set; }
 
 
 
@@ -525,7 +527,7 @@ namespace PhucMobileConnection
 
 
 
-		[Column] public int? LoaiSanPham { get; set; }
+		[Column] public int? MaLSP { get; set; }
 
 
 
