@@ -437,7 +437,7 @@ namespace PhucMobileConnection
 
 
 
-		[Column] public int? bixoa { get; set; }
+		[Column] public int bixoa { get; set; }
 
 
 
@@ -480,6 +480,12 @@ namespace PhucMobileConnection
 
 
 		[Column] public string HinhAnh { get; set; }
+
+
+
+
+
+		[Column] public string MoTa { get; set; }
 
 
 

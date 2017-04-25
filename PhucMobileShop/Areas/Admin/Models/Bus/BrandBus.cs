@@ -35,6 +35,7 @@ namespace PhucMobileShop.Areas.Admin.Models.Bus
         public static void Sua(int id, nhasanxuat nsx)
         {
             var db = new PhucMobileConnectionDB();
+            nsx.MaNSX = id;
             db.Update("nhasanxuat", "MaNSX", nsx);
         }
     }

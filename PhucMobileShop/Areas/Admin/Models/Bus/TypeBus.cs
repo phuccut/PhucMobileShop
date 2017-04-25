@@ -35,6 +35,7 @@ namespace PhucMobileShop.Areas.Admin.Models.Bus
         public static void Sua(int id, loaisanpham lsp)
         {
             var db = new PhucMobileConnectionDB();
+            lsp.MaLSP = id;
             db.Update("loaisanpham", "MaLSP", lsp);
         }
     }
